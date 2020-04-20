@@ -1,0 +1,19 @@
+{
+  "name": "thecurrencytrader",
+  "version": "1.0.0",
+  "description": "Web app containing all the essential tools an FX trader needs during their trading session",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKhan1211/TheCurrencyTrader.git"
+  },
+  "author": "Suhaib Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SKhan1211/TheCurrencyTrader/issues"
+  },
+  "homepage": "https://github.com/SKhan1211/TheCurrencyTrader#readme"
+}
