@@ -53,6 +53,10 @@ Additional Tools:
 
 ## Design Choices
 
+* The choice of a **PostgreSQL** database over other popular options such as **MongoDB** was made because it allows more flexibility, stability, speed for querying, and relational data. 
+* **GraphQL** was chosen for data querying to allow for better scaling and use of more complicated routes.
+* **React.js** is used for the frontend due making code reusable and simplifying many things compared to strict JS, and ease of use compared to other view layer libraries.
+
 ## Important MVPs
 
 - [ ] User authentication
