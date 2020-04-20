@@ -29,6 +29,27 @@ Design:
 2. HTML5 / CSS3
 3. Bootstrap
 
+Version Control:
+1. Git
+
+Debuggers:
+1. Chrome Dev Tools, Apollo Client Devtools, React Developer Tools
+
+Additional Libraries:
+1. bcrypt.js
+2. Validator
+3. Babel
+4. Passport
+5. Passport JWT
+6. Nodemon
+7. Socket.io for websockets
+8. csurf
+
+Additional Tools:
+1. Google Fonts
+2. Color Scheme
+3. AWS S3
+
 
 ## Design Choices
 
