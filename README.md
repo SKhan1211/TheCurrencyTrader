@@ -14,3 +14,4 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 - [ ] Real-time FX market prices including a live chart
 - [ ] Up-to-date market news and analysis
 - [ ] Trade documenting system that also supports notes and photos
+- [ ] Chat feature to allow easier collaboration on trades
