@@ -6,6 +6,30 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 
 ## Technologies
 
+Backend (server side):
+1. Server: Express.js / Node.js
+2. Database: PostgreSQL
+3. Querying language and routing: GraphQL
+
+Frontend (client side):
+1. Design: React
+2. Local state management: Apollo Client / Provider
+
+Services: 
+1. Swift deployment: Docker
+2. Module bundler: Webpack
+
+Testing:
+1. Jest
+2. easygraphql-tester
+3. Testing queries: GraphiQL
+
+Design:
+1. Wireframe design: Adobe Xd
+2. HTML5 / CSS3
+3. Bootstrap
+
+
 ## Design Choices
 
 ## Important MVPs
