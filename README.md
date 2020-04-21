@@ -70,4 +70,4 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 
 ## Future Features
 
-* Live streaming video feature where users can stream themselves trading or educating with a live chat, and possible donation options similar to Twitch TV
+* Live streaming video feature where users can stream themselves trading or educating with a live chat, and possible donation options similar to Twitch TV.
