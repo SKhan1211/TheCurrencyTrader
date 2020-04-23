@@ -1,4 +1,4 @@
-# TheCurrencyTrader
+# TheCurrencyTrader - Pips Made Easy
 
 ## Description
 
@@ -53,6 +53,8 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 2. Coolors Color Scheme
 3. AWS S3
 
+**Hosting:**
+1. Amazon AWS EC2
 
 ## Design Choices
 
