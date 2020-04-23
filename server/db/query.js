@@ -2,6 +2,10 @@ const { Pool } = require('pg');
 // my credentials
 const connectionString = require("../../config/keys").connectionString;
 
+if (!connectionString) {
+  throw new Error("Your PostgreSQL connection string is invalid!")
+};
+
 const pool = new Pool({
   connectionString
 });
