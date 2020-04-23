@@ -1,7 +1,12 @@
 const express = require("express");
 const { Pool, Client } = require('pg');
 const bodyParser = require("body-parser");
-const connectionString = 'postgresql://suhaib:null@localhost:5432/thecurrencytrader_development';
+const connectionString = require("../config/keys").connectionString;
+
+if (!connectionString) {
+  throw new Error("Your PostgreSQL connection string is invalid!")
+};
+
 const pool = new Pool({
   connectionString
 });
@@ -18,6 +23,7 @@ app.get('/', (req, res) => {
     };
     res.status(200).json(results.rows);
   });
+  pool.end();
 });
 
 module.exports = app;
