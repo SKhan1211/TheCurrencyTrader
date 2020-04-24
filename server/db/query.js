@@ -1,3 +1,5 @@
+// THIS FILE IS ONLY NEEDED WHEN DOING HTTP RESTFUL ROUTES, NOT POSTGRAPHILE/GRAPHQL/POSTGRES ROUTES 
+
 const { Pool } = require('pg');
 // my credentials
 const connectionString = require("../../config/keys").connectionString;
