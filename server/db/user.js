@@ -7,9 +7,9 @@ const user = {
     try {
       const readAllQuery = 'SELECT * FROM users';
       const { rows } = await db.query(readAllQuery);
-      return res.send(rows);
+      return rows;
     } catch (error) {
-      return res.send(error);
+      return error;
     };
   }
 };
