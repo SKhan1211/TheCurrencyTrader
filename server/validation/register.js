@@ -35,4 +35,9 @@ module.exports = function validateRegisterInput(data) {
   if (Validator.isEmpty(data.last_name)) {
     return { message: "Last Name field is required", isValid: false };
   };
+
+  return {
+    message: "",
+    isValid: true
+  };
 };

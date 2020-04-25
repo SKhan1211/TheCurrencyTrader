@@ -13,9 +13,11 @@ const UserType = new GraphQLObjectType({
     email: { type: GraphQLString },
     username: { type: GraphQLString },
     password: { type: GraphQLString },
-    first_name: { type: GraphQLString },
-    last_name: { type: GraphQLString },
-    is_verified: { type: GraphQLBoolean } 
+    firstName: { type: GraphQLString },
+    lastName: { type: GraphQLString },
+    isVerified: { type: GraphQLBoolean } ,
+    token: { type: GraphQLString },
+    loggedIn: { type: GraphQLBoolean }
   })
 });
 

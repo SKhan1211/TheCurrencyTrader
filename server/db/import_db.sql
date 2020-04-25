@@ -43,3 +43,11 @@ INSERT INTO
 VALUES
   ('testing@testing.com', 'TestDummy123', 'hunter12', 'Test', 'Dummy', true),
   ('testing2@testing.com', 'TestDummy234', 'hunter12', 'Test2', 'Dummy2', false);
+
+INSERT INTO 
+  users (email, username, password, first_name, last_name, is_verified)
+VALUES
+  ('testing3@testing.com', 'TestDummy567', 'h', 'Test3', 'Dummy3', true)
+
+DELETE FROM users
+WHERE email like 'testing3@testing.com';

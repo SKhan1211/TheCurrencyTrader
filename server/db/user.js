@@ -1,8 +1,6 @@
-// THIS FILE IS ONLY NEEDED WHEN DOING HTTP RESTFUL ROUTES, NOT POSTGRAPHILE/GRAPHQL/POSTGRES ROUTES 
-
 const db = require("./query");
 
-const user = {
+const User = {
   async getUsers(req, res) {
     try {
       const readAllQuery = 'SELECT * FROM users';
@@ -11,7 +9,19 @@ const user = {
     } catch (error) {
       return error;
     };
+  },
+  async getUser(req, res) {
+    try {
+      const query = {
+        text: 'SELECT * FROM users WHERE email = $1',
+        values: [req.data.email],
+      }
+      const { rows } = await db.query(query);
+      return rows;
+    } catch (error) {
+      return error;
+    };
   }
 };
 
-module.exports = user;
+module.exports = User;
