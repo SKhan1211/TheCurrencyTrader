@@ -16,21 +16,21 @@ const User = {
         text: 'SELECT * FROM users WHERE email = $1',
         values: [email],
       }
-      const { row } = await db.query(query);
-      return row;
+      const { rows } = await db.query(query.text, query.values);
+      return rows;
     } catch (error) {
       return error;
     };
   },
   async saveUser(userInput) {
     try {
-      const { email, username, password, first_name, last_name } = userInput;
+      const { email, username, password, first_name, last_name, is_verified } = userInput;
       const query = {
-        text: 'INSERT INTO users(email, username, password, first_name, last_name) VALUES($1, $2, $3, $4, $5',
-        values: [email, username, password, first_name, last_name],
+        text: 'INSERT INTO users(email, username, password, first_name, last_name, is_verified) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
+        values: [email, username, password, first_name, last_name, is_verified],
       }
-      const { row } = await db.query(query);
-      return row;
+      const { rows } = await db.query(query.text, query.values);
+      return rows[0];
     } catch (error) {
       return error;
     };

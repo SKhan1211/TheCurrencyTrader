@@ -17,24 +17,23 @@ const register = async data => {
     
     const existingUser = await User.getUser(email);
 
-    if (existingUser) {
+    if (existingUser.length !== 0) {
       throw new Error("Sorry, this user already exists");
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = User.saveUser(
+    const user = await User.saveUser(
       {
         email,
         username,
         password: hashedPassword,
         first_name,
-        last_name
-      },
-      err => {
-        if (err) throw err;
+        last_name,
+        is_verified: false
       }
     )
+    console.log(user);
 
     const token = jwt.sign({ id: user.id }, keys.secretOrKey);
 

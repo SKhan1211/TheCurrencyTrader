@@ -11,10 +11,10 @@ const pool = new Pool({
 });
 
 // a generic query, that executes all queries I send to it
-function query(text) {
+function query(text, params) {
   return new Promise((resolve, reject) => {
     pool
-      .query(text)
+      .query(text, params)
       .then((res) => {
         resolve(res);
       })
