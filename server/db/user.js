@@ -16,8 +16,8 @@ const User = {
         text: 'SELECT * FROM users WHERE email = $1',
         values: [email],
       }
-      const { rows } = await db.query(query);
-      return rows;
+      const { row } = await db.query(query);
+      return row;
     } catch (error) {
       return error;
     };
@@ -29,8 +29,8 @@ const User = {
         text: 'INSERT INTO users(email, username, password, first_name, last_name) VALUES($1, $2, $3, $4, $5',
         values: [email, username, password, first_name, last_name],
       }
-      const { rows } = await db.query(query);
-      return rows;
+      const { row } = await db.query(query);
+      return row;
     } catch (error) {
       return error;
     };
