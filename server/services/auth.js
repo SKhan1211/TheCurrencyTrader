@@ -17,7 +17,7 @@ const register = async data => {
     
     const existingUser = await User.getUser(email);
 
-    if (existingUser.length !== 0) {
+    if (existingUser) {
       throw new Error("Sorry, this user already exists");
     }
 
@@ -33,7 +33,6 @@ const register = async data => {
         is_verified: false
       }
     )
-    console.log(user);
 
     const token = jwt.sign({ id: user.id }, keys.secretOrKey);
 

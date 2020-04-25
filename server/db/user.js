@@ -17,7 +17,7 @@ const User = {
         values: [email],
       }
       const { rows } = await db.query(query.text, query.values);
-      return rows;
+      return rows[0];
     } catch (error) {
       return error;
     };
