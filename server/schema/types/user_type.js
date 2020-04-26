@@ -17,7 +17,9 @@ const UserType = new GraphQLObjectType({
     last_name: { type: GraphQLString },
     is_verified: { type: GraphQLBoolean } ,
     token: { type: GraphQLString },
-    loggedIn: { type: GraphQLBoolean }
+    loggedIn: { type: GraphQLBoolean },
+    created_at: { type: GraphQLString },
+    updated_at: { type: GraphQLString }
   })
 });
 

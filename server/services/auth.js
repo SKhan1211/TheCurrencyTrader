@@ -70,7 +70,7 @@ const login = async (data) => {
       throw new Error("Username does not exist");
     }
 
-    const isValidPassword = await bcrypt.compareSync(password, user.password);
+    const isValidPassword = await bcrypt.compareSync(data.password, user.password);
     if (!isValidPassword) throw new Error("Invalid username or password combination");
 
     const token = jwt.sign({ id: user.id }, keys.secretOrKey);
@@ -80,4 +80,21 @@ const login = async (data) => {
   }
 }
 
-module.exports = { register, logout, login };
+const verifyUser = async data => {
+  try {
+    const { token } = data;
+
+    const decoded = jwt.verify(token, keys.secretOrKey);
+    const { id } = decoded;
+
+    const loggedIn = await User.getUser(id).then(user => {
+      return user ? true : false;
+    });
+
+    return { loggedIn };
+  } catch (err) {
+    return { loggedIn: false };
+  }
+}
+
+module.exports = { register, logout, login, verifyUser };
