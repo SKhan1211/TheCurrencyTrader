@@ -10,7 +10,19 @@ const User = {
       return error;
     };
   },
-  async getUser(email) {
+  async getUser(id) {
+    try {
+      const query = {
+        text: 'SELECT * FROM users WHERE id = $1',
+        values: [id],
+      }
+      const { rows } = await db.query(query.text, query.values);
+      return rows[0];
+    } catch (error) {
+      return error;
+    }
+  },
+  async getUserByEmail(email) {
     try {
       const query = {
         text: 'SELECT * FROM users WHERE email = $1',

@@ -15,7 +15,7 @@ const register = async data => {
 
     const { email, username, password, first_name, last_name } = data;
     
-    const existingUser = await User.getUser(email);
+    const existingUser = await User.getUserByEmail(email);
 
     if (existingUser) {
       throw new Error("Sorry, this user already exists");
@@ -37,6 +37,19 @@ const register = async data => {
     const token = jwt.sign({ id: user.id }, keys.secretOrKey);
 
     return { token, loggedIn: true, ...user, password: null };
+  } catch (err) {
+    throw err;
+  };
+};
+
+const logout = async data => {
+  try {
+    const { id } = data;
+
+    const user = await User.getUser(id);
+    const token = '';
+
+    return { token, loggedIn: false, ...user, password: null };
   } catch (err) {
     throw err;
   };

@@ -1,5 +1,5 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean, GraphQLID } = graphql;
 
 const AuthService = require("../services/auth");
 
@@ -20,7 +20,16 @@ const mutation = new GraphQLObjectType({
       resolve(_, args) {
         return AuthService.register(args);
       }
-    }
+    },
+    logout: {
+      type: UserType,
+      args: {
+        id: { type: GraphQLID }
+      },
+      resolve(_, args) {
+        return AuthService.logout(args);
+      }
+    },
   }
 });
 
