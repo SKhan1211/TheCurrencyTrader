@@ -46,7 +46,19 @@ const User = {
     } catch (error) {
       return error;
     };
-  }
+  },
+  async getUserByUsername(username) {
+    try {
+      const query = {
+        text: "SELECT * FROM users WHERE LOWER(username) = LOWER($1)",
+        values: [username],
+      };
+      const { rows } = await db.query(query.text, query.values);
+      return rows[0];
+    } catch (error) {
+      return error;
+    }
+  },
 };
 
 module.exports = User;

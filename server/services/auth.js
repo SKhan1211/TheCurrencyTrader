@@ -4,6 +4,7 @@ const User = require("../db/user");
 const keys = require("../../config/keys");
 
 const validateRegisterInput = require("../validation/register");
+const validateLoginInput = require("../validation/login");
 
 const register = async data => {
   try {
@@ -55,4 +56,28 @@ const logout = async data => {
   };
 };
 
-module.exports = { register };
+const login = async (data) => {
+  try {
+    const { message, isValid } = validateLoginInput(data);
+
+    if (!isValid) {
+      throw new Error(message);
+    }
+
+    const user = await User.getUserByUsername(data.username);
+
+    if (!user) {
+      throw new Error("Username does not exist");
+    }
+
+    const isValidPassword = await bcrypt.compareSync(password, user.password);
+    if (!isValidPassword) throw new Error("Invalid username or password combination");
+
+    const token = jwt.sign({ id: user.id }, keys.secretOrKey);
+    return { token, loggedIn: true, ...user, password: null };
+  } catch (err) {
+    throw err;
+  }
+}
+
+module.exports = { register, logout, login };

@@ -64,3 +64,6 @@ ALTER TABLE notes ADD COLUMN updated_at TIMESTAMP NOT NULL DEFAULT NOW();
 
 ALTER TABLE trade_information ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();
 ALTER TABLE trade_information ADD COLUMN updated_at TIMESTAMP NOT NULL DEFAULT NOW();
+
+-- Make usernames citext so it's case insensitive
+ALTER TABLE users ALTER COLUMN username TYPE citext;
