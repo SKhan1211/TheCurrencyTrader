@@ -20,6 +20,9 @@ CREATE TABLE trade_information (
   pips_gained_lost VARCHAR(50)
 );
 
+CREATE INDEX trade_information_user_id_idx 
+ON trade_information (user_id);
+
 CREATE TABLE notes (
   id INTEGER PRIMARY KEY,
   trade_id INTEGER NOT NULL,
@@ -30,6 +33,11 @@ CREATE TABLE notes (
   FOREIGN KEY (trade_id) REFERENCES trade_information(id)
 );
 
+CREATE INDEX notes_trade_id_idx 
+ON notes (trade_id);
+CREATE INDEX notes_photo_id_idx 
+ON notes (photo_id);
+
 CREATE TABLE photos (
   id INTEGER PRIMARY KEY,
   note_id INTEGER,
@@ -37,6 +45,9 @@ CREATE TABLE photos (
 
   FOREIGN KEY (note_id) REFERENCES notes(id)
 );
+
+CREATE INDEX photos_note_id_idx 
+ON photos (note_id);
 
 INSERT INTO 
   users (email, username, password, first_name, last_name, is_verified)
