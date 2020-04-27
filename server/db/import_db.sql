@@ -78,3 +78,11 @@ ALTER TABLE trade_information ADD COLUMN updated_at TIMESTAMP NOT NULL DEFAULT N
 
 -- Make usernames citext so it's case insensitive
 ALTER TABLE users ALTER COLUMN username TYPE citext;
+
+ALTER TABLE trade_information ADD COLUMN pair TEXT NOT NULL;
+ALTER TABLE trade_information ADD COLUMN direction TEXT NOT NULL;
+
+INSERT INTO 
+  trade_information (user_id, date, time, pair, lot_size, entry_price, exit_price, direction, dollar_gained_lost, pips_gained_lost)
+VALUES
+  (67, '2020-04-25 20:44:45.928704', '7:45AM', 'EUR/USD', '0.01', '1.3900', '1.3800', 'sell', '10', '+100');
