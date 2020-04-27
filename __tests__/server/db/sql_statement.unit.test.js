@@ -62,7 +62,7 @@ describe('tests for users schema', () => {
     testDataType("is_verified", "boolean", res);
   });
 
-  test('id, email, and username has a unique constraint', async () => {
+  test('email, and username have a unique constraint', async () => {
     let { rows } = await pool.query(uniqueConstraintQuery('users'));
     let values = ['users_pkey', 'users_email_key', 'users_username_key'];
     rows.forEach(rowObj => {
@@ -115,11 +115,11 @@ describe('tests for trade_information schema', () => {
     testDataType("pips_gained_lost", "string", res);
   });
 
-  test("created_at should be a string", async () => {
+  test("created_at should be an object", async () => {
     testDataType("created_at", "object", res);
   });
 
-  test("updated_at should be a string", async () => {
+  test("updated_at should be an object", async () => {
     testDataType("updated_at", "object", res);
   });
 
@@ -130,12 +130,62 @@ describe('tests for trade_information schema', () => {
   test("direction should be a string", async () => {
     testDataType("direction", "string", res);
   });
+}); 
 
-  // test('id, email, and username has a unique constraint', async () => {
-  //   let { rows } = await pool.query(uniqueConstraintQuery('users'));
-  //   let values = ['users_pkey', 'users_email_key', 'users_username_key'];
-  //   rows.forEach(rowObj => {
-  //     expect(values.includes(rowObj.conname)).toBeTruthy();
-  //   })
-  // });
+describe('tests for notes schema', () => {
+  let res;
+  test('notes table should have id, trade_id, title, body, and photo_id columns', async () => {
+    let { rows } = await pool.query('SELECT * FROM notes LIMIT 1');
+    res = rows[0];
+    expect(res.id && res.trade_id && res.title && res.body && res.photo_id && res.created_at && res.updated_at).not.toBeNull();
+  });
+
+  test('id should be a number', async () => {
+    testDataType('id', 'number', res);
+  });
+
+  test('trade_id should be a number', async () => {
+    testDataType('trade_id', 'number', res);
+  });
+
+  test("title should be a string", async () => {
+    testDataType("title", "string", res);
+  });
+
+  test("body should be a string", async () => {
+    testDataType("body", "string", res);
+  });
+
+  test("photo_id should be a number", async () => {
+    testDataType("photo_id", "number", res);
+  });
+
+  test("created_at should be an object", async () => {
+    testDataType("created_at", "object", res);
+  });
+
+  test("updated_at should be a object", async () => {
+    testDataType("updated_at", "object", res);
+  });
+}); 
+
+describe('tests for photos schema', () => {
+  let res;
+  test('photos table should have id, note_id, and photo_url', async () => {
+    let { rows } = await pool.query('SELECT * FROM photos LIMIT 1');
+    res = rows[0];
+    expect(res.id && res.note_id && res.photo_url).not.toBeNull();
+  });
+
+  test('id should be a number', async () => {
+    testDataType('id', 'number', res);
+  });
+
+  test('note_id should be a number', async () => {
+    testDataType('note_id', 'number', res);
+  });
+
+  test("photo_url should be a string", async () => {
+    testDataType("photo_url", "string", res);
+  });
 }); 

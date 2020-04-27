@@ -86,3 +86,22 @@ INSERT INTO
   trade_information (user_id, date, time, pair, lot_size, entry_price, exit_price, direction, dollar_gained_lost, pips_gained_lost)
 VALUES
   (67, '2020-04-25 20:44:45.928704', '7:45AM', 'EUR/USD', '0.01', '1.3900', '1.3800', 'sell', '10', '+100');
+
+-- Makes Notes and Photos table auto-increment id column the way PostgreSQL does it under the hood
+CREATE SEQUENCE notes_id_seq;
+ALTER TABLE notes ALTER COLUMN id SET DEFAULT nextval('notes_id_seq');
+ALTER SEQUENCE notes_id_seq OWNED BY notes.id;
+
+CREATE SEQUENCE photos_id_seq;
+ALTER TABLE photos ALTER COLUMN id SET DEFAULT nextval('photos_id_seq');
+ALTER SEQUENCE photos_id_seq OWNED BY photos.id;
+
+INSERT INTO
+  notes (trade_id, title, body, photo_id)
+VALUES
+  (1, 'Awesome!', 'Trade is a winner', 1);
+
+INSERT INTO
+  photos (note_id, photo_url)
+VALUES
+  (1, 'https://www.fakeurl.com/');
