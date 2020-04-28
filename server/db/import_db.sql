@@ -105,3 +105,9 @@ INSERT INTO
   photos (note_id, photo_url)
 VALUES
   (1, 'https://www.fakeurl.com/');
+
+-- Was going to rename but tests rely on password so I don't know yet
+-- ALTER TABLE 
+--   users
+-- RENAME COLUMN 
+--   password TO password_digest;
