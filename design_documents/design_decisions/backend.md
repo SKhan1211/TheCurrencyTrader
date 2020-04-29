@@ -1,0 +1,3 @@
+### Apr 27, 2020 - Introducing ORM and type-checking
+* I made the decision to include TypeORM to map my chats table and any additional functions as objects because dealing with object/entry relationships might make it easier to understand for other developers
+* Additionally, now that I have gained experience writing SQL based API endpoints via PostgreSQL and while I do have experience with Mongoose, practicing an ORM library for PostgreSQL will help diversify my skillset
