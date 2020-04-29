@@ -1,8 +1,5 @@
 /node_modules
 /config
 
-# Will be released at a future time under it's own repository
-/design_documents
-
 Dockerfile
 *docker-compose*
