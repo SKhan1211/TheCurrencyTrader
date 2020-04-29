@@ -18,6 +18,8 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 **Services:**
 1. Swift deployment: Docker
 2. Module bundler: Webpack
+3. Type-checking: TypeScript
+4. ORM (Object Relational Mapping): TypeORM
 
 **Testing:**
 1. Jest
@@ -47,7 +49,6 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 9. concurrently
 10. csurf
 11. apollo-cache-persist
-12. TypeScript
 
 **Additional Tools:**
 1. Google Fonts
