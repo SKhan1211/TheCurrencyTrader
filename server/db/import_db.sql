@@ -76,8 +76,8 @@ ALTER TABLE notes ADD COLUMN updated_at TIMESTAMP NOT NULL DEFAULT NOW();
 ALTER TABLE trade_information ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();
 ALTER TABLE trade_information ADD COLUMN updated_at TIMESTAMP NOT NULL DEFAULT NOW();
 
--- Make usernames citext so it's case insensitive
-ALTER TABLE users ALTER COLUMN username TYPE citext;
+-- Make usernames citext so it's case insensitive, unneeded because I call LOWER() in my queries
+-- ALTER TABLE users ALTER COLUMN username TYPE citext;
 
 ALTER TABLE trade_information ADD COLUMN pair TEXT NOT NULL;
 ALTER TABLE trade_information ADD COLUMN direction TEXT NOT NULL;
