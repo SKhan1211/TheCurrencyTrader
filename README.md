@@ -49,6 +49,7 @@ TheCurrencyTrader is a web app containing up-to-date market news, current FX pri
 9. concurrently
 10. csurf
 11. apollo-cache-persist
+12. cors
 
 **Additional Tools:**
 1. Google Fonts

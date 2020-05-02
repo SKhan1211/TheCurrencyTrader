@@ -7,8 +7,6 @@ import ApolloClient from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from 'react-apollo';
-import { onError } from 'apollo-link-error';
-import { ApolloLink } from 'apollo-link';
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object.id || null
@@ -19,7 +17,7 @@ const httpLink = createHttpLink({
 });
 
 const client = new ApolloClient({
-  link: ApolloLink.from([errorLink, httpLink]),
+  link: httpLink,
   cache,
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
