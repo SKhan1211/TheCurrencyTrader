@@ -24,15 +24,19 @@ const client = new ApolloClient({
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
-  };
+  }
 });
 
-
+const Root = () => {
+  return (
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  )
+};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Root />,
   document.getElementById('root')
 );
 
