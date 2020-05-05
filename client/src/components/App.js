@@ -1,13 +1,17 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import Splash from './splash/splash';
+
 import TestIndex from './tests/TestIndex';
 
 const App = () => (
   <div>
     <h1>App.js Test</h1>
-    <Route exact path="/" component={TestIndex} />
+    <Switch>
+      <Route exact path="/" component={Splash} />
+      <Route exact path="/dashboard" component={TestIndex} />
+    </Switch>
   </div>
 );
 
