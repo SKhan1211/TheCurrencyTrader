@@ -38,7 +38,7 @@
     "nodemon": "^2.0.3",
     "pg": "^8.0.2",
     "react-apollo": "^3.1.5",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "jest": "^24.9.0"
